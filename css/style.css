@@ -13,8 +13,5 @@ html > body {
 div {
   width: 200px;
   height: 200px;
-  background-color: red;
-}
-div:hover {
   background-color: blue;
 }
