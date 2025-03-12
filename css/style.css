@@ -15,6 +15,7 @@ html > body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 999;
 }
 .top-bar .logo {
   display: inline-block;
@@ -40,11 +41,9 @@ html > body {
 }
 .top-bar__menu-1 .menu-item:hover:not(:last-child) > a {
   color: #fff;
-  opacity: 0.5;
 }
 .top-bar__menu-1 .menu-item:hover > a::after {
   color: #fff;
-  opacity: 0.5;
 }
 .top-bar__menu-1 .menu-item:hover .sub-menu-box {
   opacity: 1;
@@ -58,7 +57,7 @@ html > body {
   content: "\f107";
   font-family: "fontAwesome";
   margin-left: 8px;
-  transition: color 0.3s, opacity 0.3s;
+  transition: color 0.3s;
 }
 .top-bar__menu-1 .menu-item-text {
   color: #999;
@@ -66,7 +65,8 @@ html > body {
   align-items: center;
   font-size: 1rem;
   padding: 20px 5px;
-  transition: color 0.3s, opacity 0.3s;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 .top-bar__menu-1 .sub-menu-box {
   position: absolute;
@@ -90,4 +90,14 @@ html > body {
   font-size: 14px;
   color: #a9a9a9;
   font-weight: bold;
+}
+
+.video-banner__inner {
+  aspect-ratio: 2.33333;
+}
+.video-banner__inner .main-video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

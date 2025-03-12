@@ -20,6 +20,7 @@ html > body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 999;
 
   .logo {
     display: inline-block;
@@ -52,18 +53,13 @@ html > body {
         color: $menu-text-color;
       }
 
-      @mixin hover-text() {
-        color: $menu-text-color;
-        opacity: 0.5;
-      }
-
       &:hover:not(:last-child) > a {
-        @include hover-text;
+        color: $menu-text-color;
       }
 
       &:hover {
         > a::after {
-          @include hover-text;
+          color: $menu-text-color;
         }
 
         .sub-menu-box {
@@ -80,7 +76,7 @@ html > body {
           content: "\f107";
           font-family: "fontAwesome";
           margin-left: 8px;
-          transition: color 0.3s, opacity 0.3s;
+          transition: color 0.3s;
         }
       }
 
@@ -91,7 +87,8 @@ html > body {
         align-items: center;
         font-size: 1rem;
         padding: 20px 5px;
-        transition: color 0.3s, opacity 0.3s;
+        font-weight: bold;
+        transition: color 0.3s;
       }
     }
   }
@@ -125,3 +122,18 @@ html > body {
 }
 
 // 탑바 구현 끝
+
+// 비디오 섹션 구현
+$video-aspect-ratio: 2.33333;
+
+.video-banner__inner {
+  aspect-ratio: $video-aspect-ratio;
+
+  .main-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// 비디오 섹션 구현 끝
