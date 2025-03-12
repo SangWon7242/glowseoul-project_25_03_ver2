@@ -41,23 +41,47 @@ html > body {
 }
 
 .top-bar__menu-1 {
+  $menu-text-color: #fff;
+
   .menu {
     &-item {
       // menu-item
       padding-inline: 20px;
 
-      &.menu-hover > a,
-      &:hover:not(:last-child) > a,
-      &:hover > a::after {
-        color: #fff;
+      &.menu-hover > a {
+        color: $menu-text-color;
+      }
+
+      @mixin hover-text() {
+        color: $menu-text-color;
         opacity: 0.5;
       }
 
-      &:last-child > a::after {
-        content: "\f107";
-        font-family: "fontAwesome";
-        margin-left: 8px;
-        transition: color 0.3s, opacity 0.3s;
+      &:hover:not(:last-child) > a {
+        @include hover-text;
+      }
+
+      &:hover {
+        > a::after {
+          @include hover-text;
+        }
+
+        .sub-menu-box {
+          opacity: 1;
+          visibility: visible;
+          transform: translate3d(0, 10px, 0);
+        }
+      }
+
+      &:last-child {
+        position: relative;
+
+        > a::after {
+          content: "\f107";
+          font-family: "fontAwesome";
+          margin-left: 8px;
+          transition: color 0.3s, opacity 0.3s;
+        }
       }
 
       &-text {
@@ -68,6 +92,33 @@ html > body {
         font-size: 1rem;
         padding: 20px 5px;
         transition: color 0.3s, opacity 0.3s;
+      }
+    }
+  }
+
+  .sub-menu-box {
+    position: absolute;
+    width: 200px;
+    background-color: #212121;
+    color: #a9a9a9;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99999;
+    border-radius: 3px;
+    transform: translate3d(0, 20px, 0);
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+
+    .sub-menu {
+      padding-block: 20px;
+
+      .sub-menu-text {
+        display: block;
+        padding: 10px 25px 10px 20px;
+        font-size: 14px;
+        color: #a9a9a9;
+        font-weight: bold;
       }
     }
   }
